@@ -4,6 +4,7 @@
 ```
 npm install
 ```
+### 这是一个移动web项目 基于vue 框架
 
 ### Compiles and hot-reloads for development
 ```
