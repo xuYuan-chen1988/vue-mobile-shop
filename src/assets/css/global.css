@@ -1,0 +1,13 @@
+.van-tab {
+  font-size: 20px;
+}
+.van-tabs__nav--card {
+  margin: 0 0;
+}
+
+.van-tabs__wrap--scrollable .van-tab {
+  flex-basis:20% !important;
+}
+li {
+  list-style: none;
+}

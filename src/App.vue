@@ -44,6 +44,7 @@ export default {
 <style lang="less" scoped>
 .app-container {
   margin-top: 40px;
+  margin-bottom: 50px;
   position: relative;
 }
 .van-nav-bar {
@@ -64,6 +65,6 @@ export default {
 }
 .v-enter-active,
 .v-leave-active {
-  transition: all 1s ease;
+  transition: all 0.4s ease;
 }
 </style>
