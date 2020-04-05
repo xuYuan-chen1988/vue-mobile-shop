@@ -37,6 +37,7 @@ export default {
           icon: 'photo-o',
           text: '图片分享'
         }, {
+          router: '/home/goods/goodslist',
           icon: 'point-gift-o',
           text: '商品购买'
         }, {
@@ -71,6 +72,6 @@ export default {
   line-height: 150px;
   text-align: center;
   background-color: #39a9ed;
-  height: 300px;
+  height: 250px;
 }
 </style>

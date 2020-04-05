@@ -3,8 +3,8 @@
   <div>
     <h3>发表评论</h3>
     <form action>
-      <textarea maxlength="120" placeholder="请输入要BB的内容(最多吐槽120字)"></textarea>
-      <van-button type="info" size="large">发表评论</van-button>
+      <textarea maxlength="120" placeholder="请输入要BB的内容(最多吐槽120字)" v-model="msg"></textarea>
+      <van-button type="info" size="large" @click="postComment">发表评论</van-button>
       <div class="cmt-list">
         <div class="cmt-item" v-for="(item,i) in comments" :key="i">
           <div
@@ -23,7 +23,8 @@ export default {
   data () {
     return {
       pageIndex: 1, // 默认展示第一页数据
-      comments: [] // 所有评论数据
+      comments: [], // 所有评论数据
+      msg: '' // 评论输入的内容
     }
   },
   created () {
@@ -56,8 +57,27 @@ export default {
     getmore () {
       this.pageIndex++
       this.getComments()
+    },
+    // 发表评论
+    // 参数1:请求的url地址
+    // 参数2: 提交给服务器的数据对象 {content: this.msg}
+    async postComment () {
+      // 效验是否为空内容
+      if (this.msg.trim().length === 0) return this.$toast('请输入内容,不能为空')
+      const { data: res } = await this.$http.post('api/postcomment/' + this.id, {
+        // trim 可以去掉空格
+        content: this.msg.trim()
+      })
+      if (res.meta.status !== 200) return this.$toast('发表评论失败')
+      // 1. 拼接出一个评论对象
+      const cmt = {
+        user_name: '匿名用户',
+        add_time: Date.now(),
+        content: this.msg.trim()
+      }
+      this.comments.unshift(cmt)
+      this.msg = ''
     }
-
   },
   props: ['id']
 }

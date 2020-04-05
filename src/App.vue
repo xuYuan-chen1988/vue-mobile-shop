@@ -10,7 +10,7 @@
     <van-tabbar route>
       <van-tabbar-item icon="wap-home-o" to="/home">首页</van-tabbar-item>
       <van-tabbar-item icon="user-o" to="/member">会员</van-tabbar-item>
-      <van-tabbar-item icon="shopping-cart-o" badge="9" to="/shopcar">购物车</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o" badge="0" to="/shopcar" id="shopCar">购物车</van-tabbar-item>
       <van-tabbar-item icon="search" to="/search">搜索</van-tabbar-item>
     </van-tabbar>
   </div>
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     goBack () {
-
+      this.$router.back()
     }
 
   },
@@ -48,7 +48,7 @@ export default {
   position: relative;
 }
 .van-nav-bar {
-  background-color: lightblue;
+  background-color: blueviolet;
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -61,10 +61,10 @@ export default {
   opacity: 0;
   transform: translateX(-100%);
   position: absolute;
-  top: -19px;
+  top: -30px;
 }
 .v-enter-active,
 .v-leave-active {
-  transition: all 0.4s ease;
+  transition: all 0.4s linear;
 }
 </style>
