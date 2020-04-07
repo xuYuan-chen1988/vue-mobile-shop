@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h3>搜索组件</h3>
+  <div class="search-container">
+    <h1>梦里寻他千百度</h1>
+    <van-search v-model="value" shape="round" background="#ccc" placeholder="请输入搜索关键词" />
   </div>
 </template>
 
@@ -8,7 +9,7 @@
 export default {
   data () {
     return {
-
+      value: ''
     }
   },
   created () {
@@ -24,4 +25,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.search-container {
+  background-color: #ccc;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 40px;
+  bottom: 50px;
+  h1 {
+    text-align: center;
+    font-size: 22px;
+  }
+}
 </style>

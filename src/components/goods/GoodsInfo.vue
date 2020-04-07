@@ -24,7 +24,7 @@
       </p>
       <p class="number">
         购买数量：
-        <van-stepper v-model="value" :max="goodsinfo.stock_quantity" />
+        <van-stepper v-model="number" :max="goodsinfo.stock_quantity" />
       </p>
       <p class="button">
         <van-button type="info">立即购买</van-button>
@@ -57,7 +57,7 @@ export default {
     return {
       id: this.$route.params.id,
       lunbotu: [], // 轮播图的url 数据
-      value: 1,
+      number: 1,
       goodsinfo: {},
       ballFlag: false // 控制小球隐藏和显示的标识符
     }
@@ -93,6 +93,10 @@ export default {
     addToShopCar () {
       // 添加到购物车
       this.ballFlag = true
+      // 拼接出一个要保存到 store 商品信息对象
+      const goodsinfo = { id: this.goodsinfo.id, count: this.number, price: this.goodsinfo.sell_price, selected: true }
+      // 调用store 中的 mutation 来将商品加入购物车
+      this.$store.commit('addToCar', goodsinfo)
     },
     beforeEnter (el) {
       el.style.transform = 'translate(0,0)'
@@ -122,7 +126,9 @@ export default {
     afterEnter (el) {
       this.ballFlag = false
     },
-    getSelectedCount (Count) { }
+    getSelectedCount (Count) {
+
+    }
   },
   watch: {
     // 可以监听 传过来的值的改变(比如父组件的数据是异步获取的,此时用监听比较合适,否则可能没有数据,父组件间传过来的值在 props:[] 里接收)

@@ -119,3 +119,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 2. 要保证 手机和开发项目的电脑 处于同一个wifi 环境中,也就说手机可以访问到电脑的ip
 3. 打开自己的项目中的 package.json 文件,在dev 脚本中,添加一个 --host 指令,把当前电脑的主机的 wifi ip地址,设置为--host的指令值:
  + 如何查看自己电脑所处wifi的ip 呢? 在cmd 终端中运行 'ipconfig', 查看无线网的ip地址
+
+ ## 项目完成, webpack 打包, 如果前端项目不单独部署,放在后台的根目录下就好了
+  + 如果前端项目单独部署(流量很大,静态资源和应用服务器分开),一般在 nginx 上部署(一般luinx系统上部署)
+  + 最好开启gzip压缩 
+  + ngrok: 如果是小项目 想共享给别人查看,自己电脑作为服务器,可以使用 ngrok 可以将本机作为映射为一个外网的web服务器
