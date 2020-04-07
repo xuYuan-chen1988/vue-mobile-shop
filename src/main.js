@@ -2,9 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router.js'
 import './assets/css/global.css'
-// import Vant, { Lazyload } from 'vant'
+import Vant, { Lazyload } from 'vant'
 
-// import 'vant/lib/index.css'
+import 'vant/lib/index.css'
 import axios from 'axios'
 import moment from 'moment'
 // 2.引入vuex
@@ -91,10 +91,10 @@ axios.defaults.baseURL = 'https://www.fastmock.site/mock/3be3711af23d9c866f843cc
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 
 Vue.prototype.$http = axios
-// Vue.use(Vant)
-// Vue.use(Lazyload, {
-//   lazyComponent: true
-// })
+Vue.use(Vant)
+Vue.use(Lazyload, {
+  lazyComponent: true
+})
 Vue.config.productionTip = false
 
 // 定义全局时间过滤器，可以在全局使用
